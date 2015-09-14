@@ -46,8 +46,7 @@ public class BubbleSort {
 		}
 		
 		//print the resulting array		
-		System.out.println(Arrays.toString(array));
-		
+		System.out.println(Arrays.toString(array));		
 		
 		//version 1 
 		//INPUT = hardcoded array
