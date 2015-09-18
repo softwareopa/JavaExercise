@@ -4,27 +4,11 @@ public class BubbleSort_v3 {
 	
 	public static void main(String[]args){
 		 
-		// Create an array with the length of the String Array of the cmd Arguments		
-		String[] args_array = new String[args.length];
-		
-		//Read the String array from the Arguments
-		for(int i = 0; i < args.length; i++) {
-			//Put the string array elements into the int array 
-			args_array[i] = args[i];
-				
-        }	
-		
-		//Copy the content into a new array
-		String[] array = Arrays.copyOf(args, args.length);
-		
-		//take the nth element and compare it with each element in the array
-		//if the nth element is smaller than the mth element switch the position		
-		
 		//Bubble Sort the array
-		bsort(array);
+		bsort(args);
 		
 		//print the resulting array		
-		System.out.println(Arrays.toString(array));		
+		System.out.println(Arrays.toString(args));		
 			
 		//version 3
 		//INPUT = array of Strings passed in the command line
@@ -40,7 +24,7 @@ public class BubbleSort_v3 {
 	private static String[] bsort(String[] array) {
 		// Sort a String Array with bubble sort
 		//loop through the elements of the array
-		for (int n=0;n<array.length;n++){
+		for (int n=0;n<array.length-1;n++){
 			for (int m=n+1;m<array.length;m++){
 				//if the nth element is smaller than the mth element switch the position
 				if(array[m].compareTo( array[n] ) < 0 ){
