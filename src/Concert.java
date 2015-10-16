@@ -1,6 +1,3 @@
-import java.util.List;
-import java.util.ArrayList;
-
 public class Concert {
 
 	// create a chorus
@@ -36,6 +33,19 @@ public class Concert {
 		song09.title = "Oh love";
 		Song song10 = new Song();
 		song10.title = "Get happy";
+		// create Director object
+		// DIrector has the same repertoire as the 
+		Director musical_director = new Director();
+		musical_director.repertoire[0] = song01;
+		musical_director.repertoire[1] = song02;
+		musical_director.repertoire[2] = song03;
+		musical_director.repertoire[3] = song04;
+		musical_director.repertoire[4] = song05;
+		musical_director.repertoire[5] = song06;
+		musical_director.repertoire[6] = song07;
+		musical_director.repertoire[7] = song08;
+		musical_director.repertoire[8] = song09;
+		musical_director.repertoire[9] = song10;
 		// create Singer objects
 		// Singer 1 is a deep voiced ballad singer
 		Singer singer01 = new Singer();
@@ -50,7 +60,7 @@ public class Concert {
 		singer02.repertoire[0] = song04;
 		singer02.repertoire[1] = song09;
 		singer02.repertoire[2] = song10;
-		// Singer 3 is a Baritone who like secular ballads
+		// Singer 3 is a Baritone who likes secular ballads
 		Singer singer03 = new Singer();
 		singer03.section = "Bari";
 		singer03.repertoire[0] = song01;
@@ -66,28 +76,20 @@ public class Concert {
 		// SInger 5 is a Lead who sings anything
 		Singer singer05 = new Singer();
 		singer05.section = "Lead";
-		singer05.repertoire[0] = song01;
-		singer05.repertoire[1] = song02;
-		singer05.repertoire[2] = song03;
-		singer05.repertoire[3] = song04;
-		singer05.repertoire[4] = song05;
-		singer05.repertoire[5] = song06;
-		singer05.repertoire[6] = song07;
-		singer05.repertoire[7] = song08;
-		singer05.repertoire[8] = song09;
-		singer05.repertoire[9] = song10;
+		singer05.repertoire = musical_director.repertoire;
 		// Singer 6 is a Lead who sings only german songs
 		Singer singer06 = new Singer();
 		singer06.section = "Lead";
 		singer06.repertoire[0] = song05;
 		singer06.repertoire[1] = song07;
-		// Singer 7 
+		// Singer 7 is a high voice who sings everything that singer 3 sings
 		Singer singer07 = new Singer();
 		singer07.section = "Tenor";
-		singer07.repertoire = song01;
+		singer07.repertoire = singer03.repertoire;
+		// Singer 8 is a high voice who sings everything that singer 1 sings
 		Singer singer08 = new Singer();
 		singer08.section = "Tenor";
-		singer08.repertoire = song01;
+		singer08.repertoire = singer01.repertoire;
 		// create Audience objects
 		Audience audience01 = new Audience();
 		audience01.seat = 1;
@@ -101,9 +103,7 @@ public class Concert {
 		audience05.seat = 5;
 		Audience audience06 = new Audience();
 		audience06.seat = 6;
-		// create Director object
-		Director musical_director = new Director();
-		musical_director.repertoire = song01;
+		
 		// perform
 		perform(singer01);
 		perform(singer02);
@@ -116,7 +116,7 @@ public class Concert {
 	}
 	private static Singer perform(Singer singer) {
 		// Take the singer and get the title of his repertoire
-		System.out.println(singer.repertoire.title);
+		System.out.println(singer.repertoire[0].title);
 		return(singer);
 	}
 }
