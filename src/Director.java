@@ -1,8 +1,8 @@
 
 public class Director extends Person {
 
-	public Director(String name) {
-		super(name);
+	public Director(String name, Song[] repertoire) {
+		super(name, repertoire);
 		
 	}	
 		
