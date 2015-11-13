@@ -3,8 +3,8 @@ public class Guest extends Person {
 	private int seat;
 	
 
-	public Guest(int seat, String name) {
-		super(name);
+	public Guest(int seat, String name, Song[] repertoire) {
+		super(name, repertoire);
 		this.seat = seat;
 	}
 
