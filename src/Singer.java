@@ -1,18 +1,18 @@
 
 public class Singer extends Person{	
 		
-	private String section;
+	private Section section;
 	//TODO: Transform section into ENum object Tenor, Bass, Lead, Baritone String :
-	public Singer(String section, String name) {
+	public Singer(Section section, String name) {
 		super(name);
 		this.section = section;
 	}
 
-	public String getSection() {
+	public Section getSection() {
 		return section;
 	}
 
-	public void setSection(String section) {
+	public void setSection(Section section) {
 		this.section = section;
 	}
 }
