@@ -1,3 +1,4 @@
+package com.schalleck.chorus.model;
 
 /**
  * Represents a Chorus *Alt Shift 

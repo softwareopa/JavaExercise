@@ -1,3 +1,4 @@
+package com.schalleck.chorus.model;
 
 public class Director extends Person {
 

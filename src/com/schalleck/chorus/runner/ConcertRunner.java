@@ -1,14 +1,21 @@
+package com.schalleck.chorus.runner;
 
-public class Concert {
+import com.schalleck.chorus.businesslogic.Concert;
+import com.schalleck.chorus.model.Chorus;
+import com.schalleck.chorus.model.Director;
+import com.schalleck.chorus.model.Section;
+import com.schalleck.chorus.model.Singer;
+import com.schalleck.chorus.model.Song;
 
-	// create a chorus
-	// let them perform a song
-	// create an object hierarchy representing
-	// perform is writing some lyrics in the output
-	// println(Ramon : "Well you rock my soul in the bossom of abrahma."
-	// println(THorsten: "Well you rock my soul in the bossom of abrahma."
-	public Concert() {
+public class ConcertRunner {
 
+	public ConcertRunner() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		
+		
 		// create objects of Songs		
 	    // TODO: Create COncertRUnner, create concert with elements call concert.perform 
 		Song song01 = new Song("Change the World");
@@ -39,8 +46,13 @@ public class Concert {
 		
 		// Create Chorus
 		Chorus chorus = new Chorus("Herrenbesuch", musical_director, new Singer[]{singer01,singer02,singer03,singer04,singer05,singer06,singer07,singer08});
-	
+			
+		
+		// TODO Auto-generated method stub
+		// perform a concert of a chorus
+		// concert.perform(); OR perform(chorus,audience);
+		Concert concert = new Concert("Jahreskonzert", chorus);
+		concert.perform();
 	}
+
 }
-
-

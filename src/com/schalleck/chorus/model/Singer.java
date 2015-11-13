@@ -1,3 +1,4 @@
+package com.schalleck.chorus.model;
 
 public class Singer extends Person{	
 		
