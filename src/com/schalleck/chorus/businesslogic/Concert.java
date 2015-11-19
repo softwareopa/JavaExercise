@@ -1,7 +1,10 @@
 package com.schalleck.chorus.businesslogic;
 
+import java.util.Hashtable;
+
 import com.schalleck.chorus.model.Chorus;
 import com.schalleck.chorus.model.Director;
+import com.schalleck.chorus.model.Singer;
 import com.schalleck.chorus.model.Song;
 
 public class Concert {
@@ -30,26 +33,50 @@ public class Concert {
 			
 		// print all songs where the director and at least 1 singer of each section has the song in the reprtoire along with the name of the performers
 		
-		// Loop through all Songs
-		
-		// Check if there is at least one singer of each section who has the song in the repertoire
-		
-		// print out song title
-		
-		// Loop through Sections
-		
-		// print Section, Name of singer who has the song in the repertoire
-		
-		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ... use perform(Song)
-		
+		// Loop through all Songs of the director
+		for(Song song : chorus.getDirector().getRepertoire()) {
+			perform(song);	
+		}
 	}
 	
-	public void perform(Song song){
+	public void perform(Song song){		
+		
+		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ... use perform(Song)		
+		
+		Singer[] performers = new Singer[10];
+		int i = 0;
+		Hashtable<Enum, Integer> sections = new Hashtable<Enum, Integer>();
+		for(Singer current_singer : chorus.getChorus()){
+			//loop through repertoire of singer
+			for(Song song_from_current_singer : current_singer.getRepertoire()){
+				// Check if the singer can sing the song
+				if(song_from_current_singer.getTitle() == song.getTitle()){
+					// put singer into an array of performers
+					performers[i] = current_singer;
+					i++;
+					sections.put(current_singer.getSection(), 1); 
+				}
+			}			
+		}
+		
+		// Check if there is at least one singer of each section who has the song in the repertoire	
+		if(sections.size() >= 4){
+			// print out song title
+			System.out.print(String.format("\"%s\"",song.getTitle()));
+			// Loop through Singer who know the song
+			for(int j = 0;j<i;j++){
+				// print Section, Name of singer who has the song in the repertoire				
+					System.out.print(String.format(" : %s : %s",performers[j].getSection(),performers[j].getName()));
+			}	
+			System.out.println();
+		}
+		else{
+			System.out.println(String.format("\"%s\" : It cannot be performed",song.getTitle()));
+		}
 		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ...
 		// or if the song cannot be performed
 		// print "It cannot be perfomred"
 	}
-	
 }
 
 

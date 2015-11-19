@@ -40,9 +40,9 @@ public class ConcertRunner {
 		Singer singer03 = new Singer(Section.BARITONE, "Holger", new Song[]{song01,song02,song03});
 		Singer singer04 = new Singer(Section.BARITONE, "Joseph", new Song[]{song05,song06,song07,song08});
 		Singer singer05 = new Singer(Section.LEAD, "Terry", musical_director.getRepertoire());
-		Singer singer06 = new Singer(Section.LEAD, "Joseph", new Song[]{song05,song07});
-		Singer singer07 = new Singer(Section.TENOR, "Joseph", singer03.getRepertoire());
-		Singer singer08 = new Singer(Section.TENOR, "Joseph", singer01.getRepertoire());
+		Singer singer06 = new Singer(Section.LEAD, "Heiner", new Song[]{song05,song07});
+		Singer singer07 = new Singer(Section.TENOR, "Ramon", singer03.getRepertoire());
+		Singer singer08 = new Singer(Section.TENOR, "Thorsten", singer01.getRepertoire());
 		
 		// Create Chorus
 		Chorus chorus = new Chorus("Herrenbesuch", musical_director, new Singer[]{singer01,singer02,singer03,singer04,singer05,singer06,singer07,singer08});
