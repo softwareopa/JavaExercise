@@ -26,11 +26,20 @@ public class Concert {
 		System.out.println(String.format("Welcome to %s's %s!",chorus.getName(), concert_name));
 		
 		// Directed by musicaldirector. Performed by singer_name singers.
-		System.out.println(String.format("Directed by %s.",chorus.getDirector().getName()));
-		
-		
-		
+		System.out.println(String.format("Directed by %s.",chorus.getDirector().getName()));		
+			
 		// print all songs where the director and at least 1 singer of each section has the song in the reprtoire along with the name of the performers
+		
+		// Loop through all Songs
+		
+		// Check if there is at least one singer of each section who has the song in the repertoire
+		
+		// print out song title
+		
+		// Loop through Sections
+		
+		// print Section, Name of singer who has the song in the repertoire
+		
 		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ... use perform(Song)
 		
 	}
