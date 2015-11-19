@@ -1,6 +1,7 @@
 package com.schalleck.chorus.businesslogic;
 
 import com.schalleck.chorus.model.Chorus;
+import com.schalleck.chorus.model.Director;
 import com.schalleck.chorus.model.Song;
 
 public class Concert {
@@ -20,8 +21,15 @@ public class Concert {
 
 	public void perform() {
 		// TODO Auto-generated method stub
-//		println Welcome to the Concert : concertname of the chorus chorusname. Directed by musicaldirector. Performed by singer_name singers.
+		// Welcome to the Concert : concertname of the chorus chorusname.
+		
 		System.out.println(String.format("Welcome to %s's %s!",chorus.getName(), concert_name));
+		
+		// Directed by musicaldirector. Performed by singer_name singers.
+		System.out.println(String.format("Directed by %s.",chorus.getDirector().getName()));
+		
+		
+		
 		// print all songs where the director and at least 1 singer of each section has the song in the reprtoire along with the name of the performers
 		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ... use perform(Song)
 		

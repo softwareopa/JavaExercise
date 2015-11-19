@@ -9,11 +9,12 @@ public class Chorus {
 	
 	private String name;
 	private Singer[] chorus = new Singer[8];
-	
+	private Director musical_director;
 	public Chorus(String name, Director musical_director, Singer[] chorus) {
 		super();
 		this.name = name;
 		this.chorus = chorus;
+		this.musical_director = musical_director;
 	}
 
 	public String getName() {
@@ -31,4 +32,8 @@ public class Chorus {
 	public void setChorus(Singer[] chorus) {
 		this.chorus = chorus;
 	}
+	public Director getDirector() {
+		return musical_director;
+	}
+
 }
