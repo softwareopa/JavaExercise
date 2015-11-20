@@ -1,6 +1,11 @@
 package com.schalleck.chorus.runner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.schalleck.chorus.businesslogic.Concert;
+import com.schalleck.chorus.businesslogic.ConcertInterface;
 import com.schalleck.chorus.model.Chorus;
 import com.schalleck.chorus.model.Director;
 import com.schalleck.chorus.model.Section;
@@ -13,8 +18,7 @@ public class ConcertRunner {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) {	
 		
 		// create objects of Songs		
 	    // TODO: Create COncertRUnner, create concert with elements call concert.perform 
@@ -31,27 +35,27 @@ public class ConcertRunner {
 		
 		// create Director object
 		// Director Hans Jürgen has the full repertoire 
-		Director musical_director = new Director("Hans-Jürgen", new Song[]{song01, song02, song03, song04, song05, song06, song07, song08, song09, song10});		
-				
+		Director musical_director = new Director("Hans-Jürgen", new ArrayList<Song>(Arrays.asList(song01, song02, song03, song04, song05, song06, song07, song08, song09, song10)));		
+
 		// create Singer objects
 		// Singer 1 is a deep voiced ballad singer
-		Singer singer01 = new Singer(Section.BASS, "Richard", new Song[]{song01,song02,song03,song09});	
-		Singer singer02 = new Singer(Section.BASS, "Sikanda", new Song[]{song04,song09,song10});
-		Singer singer03 = new Singer(Section.BARITONE, "Holger", new Song[]{song01,song02,song03});
-		Singer singer04 = new Singer(Section.BARITONE, "Joseph", new Song[]{song05,song06,song07,song08});
+		Singer singer01 = new Singer(Section.BASS, "Richard", new ArrayList<Song>(Arrays.asList(song01,song02,song03,song09)));	
+		Singer singer02 = new Singer(Section.BASS, "Sikanda", new ArrayList<Song>(Arrays.asList(song04,song09,song10)));
+		Singer singer03 = new Singer(Section.BARITONE, "Holger", new ArrayList<Song>(Arrays.asList(song01,song02,song03)));
+		Singer singer04 = new Singer(Section.BARITONE, "Joseph", new ArrayList<Song>(Arrays.asList(song05,song06,song07,song08)));
 		Singer singer05 = new Singer(Section.LEAD, "Terry", musical_director.getRepertoire());
-		Singer singer06 = new Singer(Section.LEAD, "Heiner", new Song[]{song05,song07});
+		Singer singer06 = new Singer(Section.LEAD, "Heiner", new ArrayList<Song>(Arrays.asList(song05,song07)));
 		Singer singer07 = new Singer(Section.TENOR, "Ramon", singer03.getRepertoire());
 		Singer singer08 = new Singer(Section.TENOR, "Thorsten", singer01.getRepertoire());
 		
 		// Create Chorus
-		Chorus chorus = new Chorus("Herrenbesuch", musical_director, new Singer[]{singer01,singer02,singer03,singer04,singer05,singer06,singer07,singer08});
+		Chorus chorus = new Chorus("Herrenbesuch", musical_director, new ArrayList<Singer>(Arrays.asList(singer01,singer02,singer03,singer04,singer05,singer06,singer07,singer08)));
 			
 		
 		// TODO Auto-generated method stub
 		// perform a concert of a chorus
 		// concert.perform(); OR perform(chorus,audience);
-		Concert concert = new Concert("Jahreskonzert", chorus);
+		ConcertInterface concert = new Concert("Jahreskonzert", chorus);
 		concert.perform();
 	}
 

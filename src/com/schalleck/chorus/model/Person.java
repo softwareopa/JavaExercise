@@ -1,13 +1,17 @@
 package com.schalleck.chorus.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Person {
 	
 	//TODO: Create set and getter for repertoire
 	
 	private String name;
-	private Song[] repertoire = new Song[10];
+	private ArrayList<Song> repertoire = new ArrayList<Song>();
 
-	public Person(String name, Song[] repertoire) {
+	public Person(String name, ArrayList<Song> repertoire) {
 		super();
 		this.name = name;
 		this.repertoire = repertoire;
@@ -22,11 +26,11 @@ public class Person {
 	}
 	
 	
-	public Song[] getRepertoire() {
+	public ArrayList<Song> getRepertoire() {
 		return repertoire;
 	}
 
-	public void setRepertoire(Song[] repertoire) {
+	public void setRepertoire(ArrayList<Song> repertoire) {
 		this.repertoire = repertoire;
 	}
 }

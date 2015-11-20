@@ -1,5 +1,7 @@
 package com.schalleck.chorus.model;
 
+import java.util.ArrayList;
+
 /**
  * Represents a Chorus *Alt Shift 
  * Documentation about classes and interfaces
@@ -8,9 +10,9 @@ package com.schalleck.chorus.model;
 public class Chorus {
 	
 	private String name;
-	private Singer[] chorus = new Singer[8];
+	private ArrayList<Singer> chorus = new ArrayList<Singer>();
 	private Director musical_director;
-	public Chorus(String name, Director musical_director, Singer[] chorus) {
+	public Chorus(String name, Director musical_director, ArrayList<Singer> chorus) {
 		super();
 		this.name = name;
 		this.chorus = chorus;
@@ -25,11 +27,11 @@ public class Chorus {
 		this.name = name;
 	}
 	
-	public Singer[] getChorus() {
+	public ArrayList<Singer> getChorus() {
 		return chorus;
 	}
 
-	public void setChorus(Singer[] chorus) {
+	public void setChorus(ArrayList<Singer> chorus) {
 		this.chorus = chorus;
 	}
 	public Director getDirector() {

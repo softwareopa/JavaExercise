@@ -1,10 +1,13 @@
 package com.schalleck.chorus.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Singer extends Person{	
 		
 	private Section section;
 	//TODO: Transform section into ENum object Tenor, Bass, Lead, Baritone String :
-	public Singer(Section section, String name, Song[] repertoire) {
+	public Singer(Section section, String name, ArrayList<Song> repertoire) {
 		super(name, repertoire);
 		this.section = section;
 	}
