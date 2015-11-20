@@ -4,6 +4,7 @@ import java.util.Hashtable;
 
 import com.schalleck.chorus.model.Chorus;
 import com.schalleck.chorus.model.Director;
+import com.schalleck.chorus.model.Section;
 import com.schalleck.chorus.model.Singer;
 import com.schalleck.chorus.model.Song;
 
@@ -45,22 +46,29 @@ public class Concert {
 		
 		Singer[] performers = new Singer[10];
 		int i = 0;
+		// Hash to store the Section of the singers that have the song in their repertoire
 		Hashtable<Enum, Integer> sections = new Hashtable<Enum, Integer>();
+		//Loop through all singers
 		for(Singer current_singer : chorus.getChorus()){
 			//loop through repertoire of singer
 			for(Song song_from_current_singer : current_singer.getRepertoire()){
 				// Check if the singer can sing the song
 				if(song_from_current_singer.getTitle() == song.getTitle()){
-					// put singer into an array of performers
+					// TODO: Make sure the Song Titles are unique
+					// put singer into a hash of performers
 					performers[i] = current_singer;
 					i++;
+					// Add the section to the hash of sections
 					sections.put(current_singer.getSection(), 1); 
 				}
 			}			
 		}
+		// TODO: The two programm parts could be put into seperate methods
+		// song_check()
+		// publish_performance();
 		
 		// Check if there is at least one singer of each section who has the song in the repertoire	
-		if(sections.size() >= 4){
+		if(sections.size() >= Section.values().length){ 			
 			// print out song title
 			System.out.print(String.format("\"%s\"",song.getTitle()));
 			// Loop through Singer who know the song
