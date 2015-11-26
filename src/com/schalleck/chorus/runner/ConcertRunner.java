@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.schalleck.chorus.businesslogic.Concert;
-import com.schalleck.chorus.businesslogic.ConcertInterface;
 import com.schalleck.chorus.model.Chorus;
 import com.schalleck.chorus.model.Director;
 import com.schalleck.chorus.model.Section;
@@ -55,7 +54,7 @@ public class ConcertRunner {
 		// TODO Auto-generated method stub
 		// perform a concert of a chorus
 		// concert.perform(); OR perform(chorus,audience);
-		ConcertInterface concert = new Concert("Jahreskonzert", chorus);
+		Concert concert = new Concert("Jahreskonzert", chorus);
 		concert.perform();
 	}
 

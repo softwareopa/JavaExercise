@@ -1,16 +1,14 @@
 package com.schalleck.chorus.businesslogic;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Hashtable;
 
 import com.schalleck.chorus.model.Chorus;
+import com.schalleck.chorus.model.Director;
 import com.schalleck.chorus.model.Section;
 import com.schalleck.chorus.model.Singer;
 import com.schalleck.chorus.model.Song;
 
-public class Concert implements ConcertInterface {
+public class Concert {
 	private String concert_name;
 	private Chorus chorus;
 	
@@ -25,11 +23,8 @@ public class Concert implements ConcertInterface {
 		this.chorus = chorus;		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.schalleck.chorus.businesslogic.ConcertInterface#perform()
-	 */
-	@Override
 	public void perform() {
+		// TODO Auto-generated method stub
 		// Welcome to the Concert : concertname of the chorus chorusname.
 		
 		System.out.println(String.format("Welcome to %s's %s!",chorus.getName(), concert_name));
@@ -45,60 +40,50 @@ public class Concert implements ConcertInterface {
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.schalleck.chorus.businesslogic.ConcertInterface#perform(com.schalleck.chorus.model.Song)
-	 */
-	@Override
 	public void perform(Song song){		
 		
 		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ... use perform(Song)		
 		
-		//Singer[] performers = new Singer[10];
-		ArrayList<Singer> performers = new ArrayList<Singer>();
-		
+		Singer[] performers = new Singer[10];
+		int i = 0;
 		// Hash to store the Section of the singers that have the song in their repertoire
-		Map<Enum, Boolean> sections = new HashMap<Enum, Boolean>();
+		Hashtable<Enum, Integer> sections = new Hashtable<Enum, Integer>();
 		//Loop through all singers
 		for(Singer current_singer : chorus.getChorus()){
 			//loop through repertoire of singer
 			for(Song song_from_current_singer : current_singer.getRepertoire()){
 				// Check if the singer can sing the song
-				if(song_from_current_singer.equals(song)){
-					//
+				if(song_from_current_singer.getTitle() == song.getTitle()){
 					// TODO: Make sure the Song Titles are unique
 					// put singer into a hash of performers
-					performers.add(current_singer);
+					performers[i] = current_singer;
+					i++;
 					// Add the section to the hash of sections
-					sections.put(current_singer.getSection(), true); 
+					sections.put(current_singer.getSection(), 1); 
 				}
 			}			
 		}
-		
 		// TODO: The two programm parts could be put into seperate methods
 		// song_check()
 		// publish_performance();
 		
 		// Check if there is at least one singer of each section who has the song in the repertoire	
-		publishPerformance(song, performers, sections);
-		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ...
-		// or if the song cannot be performed
-		// print "It cannot be perfomred"
-	}
-
-	private void publishPerformance(Song song, ArrayList<Singer> performers, Map<Enum, Boolean> sections) {
 		if(sections.size() >= Section.values().length){ 			
 			// print out song title
 			System.out.print(String.format("\"%s\"",song.getTitle()));
 			// Loop through Singer who know the song
-			for(Singer current_performer : performers){
+			for(int j = 0;j<i;j++){
 				// print Section, Name of singer who has the song in the repertoire				
-					System.out.print(String.format(" : %s : %s",current_performer.getSection(),current_performer.getName()));
+					System.out.print(String.format(" : %s : %s",performers[j].getSection(),performers[j].getName()));
 			}	
 			System.out.println();
 		}
 		else{
 			System.out.println(String.format("\"%s\" : It cannot be performed",song.getTitle()));
 		}
+		// "Rock my Soul" : BASS : Richard Rudi LEAD: Terry Heiner BARITONE: ...
+		// or if the song cannot be performed
+		// print "It cannot be perfomred"
 	}
 }
 
